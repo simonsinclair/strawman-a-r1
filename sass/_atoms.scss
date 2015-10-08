@@ -1,0 +1,186 @@
+// _atoms.scss
+//
+
+// LAYOUT
+// - Grid
+
+@import 'grid';
+
+
+// COLOUR
+// - Reds
+
+$news:     #BB1919;
+$newsbeat: #4D2C7A;
+
+// - Greys
+
+$body-copy:    #404040;
+$summary-copy: #5A5A5A;
+$keyline:      #DCDCDC;
+
+// - Blues
+
+$link:       #222222;
+$link-hover: #1167A8;
+
+
+// TYPOGRAPHY
+// - Fonts
+
+@mixin bold   { font-weight: bold; }
+@mixin italic { font-style: italic; }
+
+@mixin ff-arial   { font-family: Helmet, Freesans, Helvetica, Arial, sans-serif; }
+@mixin ff-georgia { font-family: Georgia, serif; }
+
+// - Scale
+
+@import 'typography-settings';
+
+@mixin output-typographic-scale($settings) {
+  @each $type-class, $class-groups in $settings {
+    %#{$type-class} {
+      @each $group, $type-properties in $class-groups {
+        @include output-type-group-styles($group, $type-properties);
+      }
+    }
+    %#{$type-class}--bold {
+      @include bold;
+      letter-spacing: -1px;
+    }
+  }
+}
+
+@mixin output-type-group-styles($group, $type-properties) {
+  @include mq($group) {
+    @each $type-property, $type-value in $type-properties {
+      #{$type-property}: $type-value;
+    }
+  }
+}
+
+@include output-typographic-scale($typographic-scale-settings);
+
+
+// MICROCOPY
+// - Label
+
+.label {
+  @extend %minion;
+  background-color: #000;
+  color: #FFF;
+  display: inline-block;
+  line-height: 1;
+  padding: 0.25em 0.25em 0.16em;
+  vertical-align: middle;
+}
+
+// -- Label Colour
+.label--newsbeat {
+  background-color: $newsbeat;
+}
+
+// -- Label Structural
+.label--inline {
+  margin-top: -0.25em;
+}
+.label--icon {
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+}
+
+
+// LISTS
+// - Nav
+
+@mixin nav {
+  list-style: none;
+  padding-left: 0;
+
+  > li {
+
+    &,
+    > a {
+      display: inline-block;
+    }
+  }
+}
+
+@mixin nav--stacked {
+
+  > li {
+    display: list-item;
+
+    > a {
+      display: block;
+    }
+  }
+}
+
+
+// MEDIA
+// - Image
+
+.image {
+  max-width: 100%;
+}
+
+// - Avatar
+
+.avatar {
+  background-color: #EEE;
+  border-radius: 50%;
+  height: auto;
+  width: 48px;
+}
+
+
+// ICONOGRAPHY
+// - Branch
+
+@mixin branch {
+
+  &::before {
+    background-color: $news;
+    content: '';
+    display: block;
+    margin-bottom: 3px; // + 1 = 4
+    height: 1px;
+    width: 40px;
+  }
+}
+
+// - Icons
+
+.icon {
+  display: inline-block;
+
+  &,
+  svg {
+    height: 32px;
+    width: 32px;
+  }
+}
+  .icon--type {
+    line-height: 1;
+    margin-top: -0.25em;
+    vertical-align: middle;
+
+    &,
+    svg {
+      height: 1em;
+      width: 1em;
+    }
+  }
+  .icon--label {
+
+    &,
+    svg {
+      height: 1em;
+      width: 1em;
+    }
+    svg {
+      fill: #FFF;
+    }
+  }

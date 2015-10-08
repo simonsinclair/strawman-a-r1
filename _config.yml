@@ -1,0 +1,22 @@
+# _config.yml
+#
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - gulpfile.js
+  - node_modules
+  - package.json
+  - README.md
+  - sass
+
+
+# http://jch.penibelst.de/
+
+compress_html:
+  clippings: all
+  comments: all
+  endings: []
+  profile: false
+  ignore:
+    envs: []
