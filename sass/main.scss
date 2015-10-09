@@ -44,3 +44,27 @@ a {
     color: $link-hover;
   }
 }
+
+// PAGE
+//
+
+.container {
+  margin: 0 auto;
+  max-width: 976px;
+}
+
+.flat {
+  display: block;
+  max-width: 100%;
+}
+
+// Common
+//
+
+.orb {
+  background-color: #FFF;
+  border-bottom: 1px solid #CCC;
+}
+.masthead {
+  background-color: #BB1919;
+}
