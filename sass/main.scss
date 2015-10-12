@@ -61,10 +61,19 @@ a {
 // Common
 //
 
-.orb {
+.orb-header {
   background-color: #FFF;
   border-bottom: 1px solid #CCC;
 }
 .masthead {
   background-color: #BB1919;
 }
+.orb-footer {}
+  .orb-footer__services {
+    background-color: #2F2F2F;
+    border-bottom: 1px solid #949494;
+  }
+  .orb-footer__main {
+    background-color: #4C4C4C;
+  }
+    .orb-footer__inner {}

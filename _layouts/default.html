@@ -16,11 +16,12 @@ layout: compress
     <link rel="stylesheet" href="{{ baseurl }}/css/main.css" />
   </head>
   <body>
-    {% include orb.html %}
+    {% include orb-header.html %}
     {% include masthead.html %}
 
     {{ content }}
 
+    {% include orb-footer.html %}
     <script src="{{ baseurl }}/js/vendor/jquery-2.1.4.min.js"></script>
     <script src="{{ baseurl }}/js/main.js"></script>
   </body>
