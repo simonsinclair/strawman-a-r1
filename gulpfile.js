@@ -62,9 +62,8 @@ gulp.task('watch', function() {
 
   gulp.watch('sass/*.scss', ['sass']);
   gulp.watch([
-    '{.,**/}index.html',
-    '_data/*.yml',
-    '_includes/**/*.html',
+    '*.html',
+    '_includes/*.html',
     '_layouts/*.html',
     'img/**/*',
     'js/main.js'
