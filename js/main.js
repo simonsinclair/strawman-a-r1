@@ -112,5 +112,8 @@
 
   };
 
+  // Expose
+  w.A = A;
+
   $(A.init);
 })(this, jQuery);

@@ -26,5 +26,11 @@ layout: compress
     <script src="{{ baseurl }}/js/vendor/ba-tiny-pubsub.min.js"></script>
     <script src="{{ baseurl }}/js/vendor/js-cookie.min.js"></script>
     <script src="{{ baseurl }}/js/main.js"></script>
+    <script>
+      // Cold-start from Home
+      if(location.pathname === '/') {
+        A.coldStart();
+      }
+    </script>
   </body>
 </html>
