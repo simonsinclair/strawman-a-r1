@@ -20,6 +20,7 @@ html {
 
 body {
   @include ff-arial;
+  background-color: #FAFAFA;
   color: $body-copy;
 }
 
@@ -50,7 +51,11 @@ a {
 
 .container {
   margin: 0 auto;
-  max-width: 976px;
+  max-width: 375px;
+}
+.container--non-flat {
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 .flat {
@@ -58,22 +63,58 @@ a {
   max-width: 100%;
 }
 
+// STATES
+//
+
+.flat {
+  display: none;
+
+  &.all {
+    display: block;
+  }
+}
+
+
 // Common
 //
 
-.orb-header {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
-}
+.orb-header {}
+
 .masthead {
-  background-color: #BB1919;
+  background-color: $news;
+  position: relative;
+  padding-top: 13px;
+  padding-bottom: 13px;
 }
+  .masthead__logotype {
+    color: #FFF;
+    display: block;
+  }
+  .masthead__sections {
+    border: 1px solid rgba(255,255,255,0.25);
+    color: #FFF;
+    display: block;
+    line-height: 1;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 14px;
+    position: absolute;
+      top: 10px; right: 8px;
+    -webkit-font-smoothing: antialiased;
+
+    &:hover {
+      background-color: #222;
+      border-color: rgba(255,255,255,0);
+      color: #FFF;
+    }
+
+    img {
+      margin-right: 8px;
+    }
+  }
+
+.home-tabs {}
+
 .orb-footer {}
-  .orb-footer__services {
-    background-color: #2F2F2F;
-    border-bottom: 1px solid #949494;
-  }
-  .orb-footer__main {
-    background-color: #4C4C4C;
-  }
-    .orb-footer__inner {}
+  .orb-footer__services {}
+  .orb-footer__main {}
