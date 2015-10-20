@@ -40,6 +40,10 @@
       $.subscribe('loggedIn', A.onLoggedIn);
 
       $.subscribe('unFollowed', A.onUnFollowed);
+
+      $('#js-sections').on('click', A.toggleMenu);
+      $('#js-menu a[data-disable]').on('click', false);
+      $('#js-menu .menu__item--with-children > a').on('click', A.toggleMenuChildren);
     },
 
     // STATES
@@ -159,6 +163,31 @@
         $('body').addClass('not-following');
       }
     },
+
+    // GENERIC
+    //
+
+    toggleMenu: function(e) {
+      e.preventDefault();
+      $(this).toggleClass('masthead__sections--active');
+      $('#js-menu').toggleClass('menu--active');
+    },
+
+    toggleMenuChildren: function() {
+      var $allMenuItems    = $('#js-menu .menu__item--with-children');
+      var $clickedMenuItem = $(this).parent();
+
+      if( $clickedMenuItem.hasClass('expanded') ) {
+
+        $clickedMenuItem.toggleClass('expanded');
+
+      } else {
+
+        $allMenuItems.removeClass('expanded');
+        $clickedMenuItem.toggleClass('expanded');
+
+      }
+    }
 
   };
 
