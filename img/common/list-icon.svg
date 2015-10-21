@@ -7,38 +7,8 @@
 	.st0{fill:#FFFFFF;}
 </style>
 <g>
-	<polygon class="st0" points="0,0 0,3 0,3 13,3 13,3 13,0 	"/>
-	<polygon class="st0" points="0,8 0,8 13,8 13,8 13,5 0,5 	"/>
-	<polygon class="st0" points="0,13 0,13 13,13 13,13 13,10 0,10 	"/>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
+	<polygon class="st0" points="0,0 0,3 0,3 13,3 13,3 13,0"/>
+	<polygon class="st0" points="0,8 0,8 13,8 13,8 13,5 0,5"/>
+	<polygon class="st0" points="0,13 0,13 13,13 13,13 13,10 0,10"/>
 </g>
 </svg>
