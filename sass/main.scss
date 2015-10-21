@@ -83,7 +83,24 @@ a {
 // Common
 //
 
-.orb-header {}
+.orb-header {
+
+  ul {
+    @include clearfix;
+    list-style: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+
+    > li {
+      float: left;
+
+      > a {
+        display: block;
+      }
+    }
+  }
+}
 
 .masthead {
   background-color: $news;
@@ -95,7 +112,6 @@ a {
     background-color: $sport;
   }
   .masthead__logotype {
-    color: #FFF;
     display: block;
   }
   .masthead__sections {
