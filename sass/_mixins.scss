@@ -9,23 +9,3 @@
     clear: both;
   }
 }
-
-@mixin nav {
-  list-style: none;
-  padding-left: 0;
-
-  > li {
-
-    a {
-      display: block;
-    }
-  }
-}
-
-@mixin nav--inline {
-  @include cldr-clearfix;
-
-  > li {
-    float: left;
-  }
-}
