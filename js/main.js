@@ -41,8 +41,8 @@
 
       $.subscribe('unFollowed', A.onUnFollowed);
 
+      $('a[data-disable]').on('click', false);
       $('#js-sections').on('click', A.toggleMenu);
-      $('#js-menu a[data-disable]').on('click', false);
       $('#js-menu .menu__item--with-children > a').on('click', A.toggleMenuChildren);
     },
 
