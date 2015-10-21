@@ -91,6 +91,9 @@ a {
   padding-top: 13px;
   padding-bottom: 13px;
 }
+  .masthead--sport {
+    background-color: $sport;
+  }
   .masthead__logotype {
     color: #FFF;
     display: block;
@@ -120,6 +123,15 @@ a {
 
     img {
       margin-right: 8px;
+    }
+
+    .masthead--sport & {
+      border-color: rgba(0,0,0,0.25);
+      color: #000;
+
+      &:hover {
+        background-color: unset;
+      }
     }
   }
 

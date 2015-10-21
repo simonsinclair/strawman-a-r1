@@ -1,0 +1,38 @@
+---
+layout: compress
+---
+{% include baseurl.html %}
+<!DOCTYPE HTML>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>BBC &mdash; Sport</title>
+    <meta name="description" content="" />
+
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <link rel="stylesheet" href="{{ baseurl }}/css/main.css" />
+  </head>
+  <body>
+    {% include orb-header.html %}
+    {% include masthead-sport.html %}
+    {% include menu.html %}
+
+    {{ content }}
+
+    {% include orb-footer.html %}
+    <script src="{{ baseurl }}/js/vendor/jquery-2.1.4.min.js"></script>
+    <script src="{{ baseurl }}/js/vendor/ba-tiny-pubsub.min.js"></script>
+    <script src="{{ baseurl }}/js/vendor/js-cookie.min.js"></script>
+    <script src="{{ baseurl }}/js/main.js"></script>
+    <script>
+      if( A.getParameterByName('reset') === "true" ) {
+        A.coldStart();
+        window.location.replace("{{ baseurl }}");
+        alert('Prototype reset.');
+      }
+    </script>
+  </body>
+</html>
