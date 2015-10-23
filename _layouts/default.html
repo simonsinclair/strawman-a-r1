@@ -29,7 +29,7 @@ layout: compress
       if( A.getParameterByName('reset') === "true" ) {
         A.coldStart();
         window.location.replace("{{ baseurl }}");
-        alert('Prototype reset.');
+        console.log('Starting from cold.');
       }
     </script>
   </body>
