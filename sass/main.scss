@@ -250,7 +250,9 @@ $mybbc-confirmation-green: #159008;
 
 // My News
 // - Onboarding
-.onboard {}
+.onboard {
+  background-color: #F2F2F2;
+}
   .onboard__topics {
     @include nav;
     @include nav--stacked;
@@ -277,7 +279,6 @@ $mybbc-confirmation-green: #159008;
     display: block;
   }
   .onboard__search {
-    background-color: #F2F2F2;
 
     input {
       background-color: #DDD;
