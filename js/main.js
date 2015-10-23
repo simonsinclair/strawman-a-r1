@@ -49,6 +49,7 @@
       $('a[data-disable]').on('click', false);
       $('#js-sections').on('click', A.toggleMenu);
       $('#js-menu .menu__item--with-children > a').on('click', A.toggleMenuChildren);
+      $('a[data-follow-topic]').on('click', A.toggleFollowDataTopic);
     },
 
     // STATES
@@ -100,6 +101,18 @@
 
       Cookies.set('following', A.following);
       A.updateBodyFollowedTopics( topicToRemove );
+    },
+
+    toggleFollowDataTopic: function(e) {
+      e.preventDefault();
+      var topic       = $(this).data('follow-topic');
+      var isFollowing = ( $.inArray( topic, A.following ) > -1 );
+
+      if( isFollowing ) {
+        A.unFollow( topic );
+      } else {
+        A.follow( topic );
+      }
     },
 
     // UPDATE
