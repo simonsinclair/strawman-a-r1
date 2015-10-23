@@ -218,6 +218,31 @@ a {
 .orb-footer {}
   .orb-footer__services {}
   .orb-footer__main {}
+
+.follow-cta {
+
+  span {
+    background-color: blue;
+    color: #FFF;
+    display: inline-block;
+    line-height: 24px;
+    text-align: center;
+    height: 24px;
+    width: 24px;
+  }
+}
+
+$mybbc-confirmation-green: #159008;
+
+.mybbc-cta {
+  background-color: $mybbc;
+  color: #FFF;
+  display: inline-block;
+  font-weight: bold;
+  padding: 8px 12px;
+  -webkit-font-smoothing: antialiased;
+}
+
 // BBC iD
 // - Register
 // - Sign In
