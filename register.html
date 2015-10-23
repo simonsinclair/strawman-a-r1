@@ -2,6 +2,22 @@
 layout: default
 ---
 {% include baseurl.html %}
-<div class="container container--non-flat">
-  <h1>BBC iD &mdash; Register</h1>
+<div class="register container">
+  <img class="flat all" src="{{ baseurl }}/img/bbc-id/register_01.png" alt="" />
+  <div class="register__inputs">
+    <input type="email" name="email" id="" value="tester@bbc.co.uk" required="" />
+  </div>
+  <img class="flat all" src="{{ baseurl }}/img/bbc-id/register_02.png" alt="" />
+  <div class="register__inputs">
+    <input type="password" name="password" id="" required="" />
+  </div>
+  <img class="flat all" src="{{ baseurl }}/img/bbc-id/register_03.png" alt="" />
+  <div class="register__inputs">
+    <input type="password" name="password-confirmation" id="" required="" />
+  </div>
+  <img class="flat all" src="{{ baseurl }}/img/bbc-id/register_04.png" alt="" />
+  <a class="register__cta" href="{{ baseurl }}/register-confirmation.html" onclick="A.register()">
+    <img class="flat all" src="{{ baseurl }}/img/bbc-id/register_05.png" alt="" />
+  </a>
+  <img class="flat all" src="{{ baseurl }}/img/bbc-id/register_06.png" alt="" />
 </div>

@@ -218,3 +218,44 @@ a {
 .orb-footer {}
   .orb-footer__services {}
   .orb-footer__main {}
+// BBC iD
+// - Register
+// - Sign In
+.register,
+.sign-in {}
+
+.register__inputs,
+.sign-in__inputs {
+  @extend .container, .container--non-flat;
+  background: #FFF;
+
+  input {
+    border: 1px solid #A7A7A7;
+    font-size: 20px;
+    height: 38px;
+    padding: 0 8px;
+    width: 300px;
+  }
+}
+
+.register__cta,
+.sign-in__cta {
+  display: block;
+}
+
+// - Register-confirmation
+.register-confirmation {}
+  .register-confirmation__group {
+    @extend .container, .container--non-flat;
+    background: #FFF;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+    .register-confirmation__address {
+      color: $mybbc-confirmation-green;
+      font-weight: bold;
+      margin-top: 0;
+    }
+    .register-confirmation__continue-cta {
+      @extend .mybbc-cta;
+    }

@@ -2,6 +2,10 @@
 layout: default
 ---
 {% include baseurl.html %}
-<div class="container container--non-flat">
-  <h1>BBC iD &mdash; Register Confirmation</h1>
+<div class="register-confirmation container">
+  <img class="flat all" src="{{ baseurl }}/img/bbc-id/register-confirmation.png" alt="" />
+  <div class="register-confirmation__group">
+    <p class="register-confirmation__address">tester@bbc.co.uk</p>
+    <a class="register-confirmation__continue-cta" href="{{ baseurl }}" onclick="A.login()">Continue</a>
+  </div>
 </div>
