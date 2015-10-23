@@ -6,24 +6,29 @@
 
   var A = {
 
-    following: [],
-
     // INITIALIZE
     //
 
     init: function() {
       A.bindEvts();
+
+      A.following = Cookies.getJSON('following') || [];
+
       A.updateBodyRegisteredOrNot();
       A.updateBodyLoggedInOrNot();
       A.updateBodyFollowedTopics();
+
+      // A.coldStart();
+      // A.testAll();
     },
 
     testAll: function() {
       A.register();
       A.login();
-      A.follow('mars');
-      A.follow('david-beckham');
-      A.unFollow('mars');
+      A.follow('mars-rover');
+      A.follow('sepp-blatter');
+      A.follow('film');
+      A.unFollow('mars-rover');
     },
 
     coldStart: function() {
@@ -44,6 +49,7 @@
       $('a[data-disable]').on('click', false);
       $('#js-sections').on('click', A.toggleMenu);
       $('#js-menu .menu__item--with-children > a').on('click', A.toggleMenuChildren);
+      $('a[data-follow-topic]').on('click', A.toggleFollowDataTopic);
     },
 
     // STATES
@@ -97,6 +103,18 @@
       A.updateBodyFollowedTopics( topicToRemove );
     },
 
+    toggleFollowDataTopic: function(e) {
+      e.preventDefault();
+      var topic       = $(this).data('follow-topic');
+      var isFollowing = ( $.inArray( topic, A.following ) > -1 );
+
+      if( isFollowing ) {
+        A.unFollow( topic );
+      } else {
+        A.follow( topic );
+      }
+    },
+
     // UPDATE
     //
 
@@ -125,7 +143,6 @@
     //
 
     updateBodyFollowedTopics: function(topicToRemove) {
-      var following = Cookies.getJSON('following') || [];
 
       // If there is a topic to remove, that's all we need to do.
       if(topicToRemove) {
@@ -136,7 +153,7 @@
       } else {
 
         // Add followed topics using cookie array.
-        $.each(following, function(i, topic) {
+        $.each(A.following, function(i, topic) {
           $('body').addClass( topic );
         });
 
@@ -150,8 +167,7 @@
     //
 
     updateBodyFollowingOrNot: function() {
-      var following   = Cookies.getJSON('following') || [];
-      var isFollowing = following.length > 0 ? true : false;
+      var isFollowing = A.following.length > 0 ? true : false;
 
       // First remove both following and not-following classes, so we can...
       $('body').removeClass('following not-following');
