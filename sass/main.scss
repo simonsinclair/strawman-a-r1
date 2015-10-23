@@ -70,14 +70,14 @@ a {
   display: none;
 
   &.all {
-    display: block;
+    display: inherit;
   }
 }
 
-.registered .registered { display: block; }
+.registered .registered { display: inherit; }
 
-.logged-out .logged-out { display: block; }
-.logged-in  .logged-in  { display: block; }
+.logged-out .logged-out { display: inherit; }
+.logged-in  .logged-in  { display: inherit; }
 
 
 // Common
