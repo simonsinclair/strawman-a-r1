@@ -320,6 +320,15 @@ $mybbc-confirmation-green: #159008;
     }
   }
 
+  // -- Homepage
+  .my-news-hp__logged-out {}
+    .my-news-hp__logged-out__ctas {
+      @include nav;
+      @include nav--float;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
 // BBC iD
 // - Register
 // - Sign In
