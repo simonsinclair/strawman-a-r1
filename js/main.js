@@ -10,7 +10,7 @@
     //
 
     init: function() {
-      A.coldStart();
+      // A.coldStart();
       A.bindEvts();
 
       A.following = Cookies.getJSON('following') || [];
@@ -23,7 +23,7 @@
         A.updateBodyFollowedTopics();
       }
 
-      A.testStates();
+      // A.testStates();
     },
 
     testStates: function() {
@@ -95,8 +95,10 @@
       $('body').removeClass( bodyTopicsString );
 
 
-      // Add the t-class
-      $('body').addClass( 't-' + topic );
+      // And remove t-classes
+      $.each(A.following, function(i, topic) {
+        $('body').removeClass('t-' + topic);
+      });
 
       A.following.push( topic );
       Cookies.set('following', A.following);
@@ -115,9 +117,10 @@
       var bodyTopicsString = A.getBodyTopicsString(A.following);
       $('body').removeClass( bodyTopicsString );
 
-
-      // Remove the t-class
-      $('body').removeClass( 't-' + topic );
+      // And remove t-classes
+      $.each(A.following, function(i, topic) {
+        $('body').removeClass('t-' + topic);
+      });
 
       var topicToRemove = topic;
       var index         = A.following.indexOf( topicToRemove );
@@ -170,8 +173,12 @@
 
     updateBodyFollowedTopics: function() {
       var bodyTopicsString = A.getBodyTopicsString(A.following);
-
       $('body').addClass( bodyTopicsString );
+
+      // Generate t-classes
+      $.each(A.following, function(i, topic) {
+        $('body').addClass('t-' + topic)
+      });
 
       A.updateBodyFollowingOrNot();
     },
