@@ -10,42 +10,41 @@
     //
 
     init: function() {
-      // A.coldStart();
+      A.coldStart();
       A.bindEvts();
 
       A.following = Cookies.getJSON('following') || [];
 
-      A.updateBodyRegisteredOrNot();
       A.updateBodyLoggedInOrNot();
+
 
       // Update body class with followed topics if we're following any
       if(A.following.length > 0) {
         A.updateBodyFollowedTopics();
       }
 
-      // A.testStates();
+      A.updateBodyFollowingOrNot();
+
+      A.testStates();
     },
 
     testStates: function() {
-      A.register();
       A.login();
-      A.follow('mars');
-      A.follow('sepp');
-      A.follow('film');
-      A.unFollow('mars');
+      // A.follow('mars');
+      // A.follow('sepp');
+      // A.follow('film');
+      // A.unFollow('mars');
     },
 
     coldStart: function() {
       A.following = [];
 
       Cookies.remove('logged-in');
-      Cookies.remove('registered');
       Cookies.remove('following', []);
     },
 
     bindEvts: function() {
       $.subscribe('followed', A.onFollow);
-      $.subscribe('registered', A.onRegistered);
       $.subscribe('loggedIn', A.onLoggedIn);
 
       $.subscribe('unFollowed', A.onUnFollowed);
@@ -57,17 +56,6 @@
     },
 
     // STATES
-    // - Register
-
-    register: function() {
-      Cookies.set('registered', true);
-      $.publish('registered');
-    },
-
-    onRegistered: function() {
-      A.updateBodyRegisteredOrNot();
-    },
-
     // - login
 
     login: function() {
@@ -146,16 +134,6 @@
 
     // UPDATE
     //
-
-    updateBodyRegisteredOrNot: function() {
-      $('body').removeClass('registered anonymous');
-
-      if( Cookies.get('registered') ) {
-        $('body').addClass('registered');
-      } else {
-        $('body').addClass('anonymous');
-      }
-    },
 
     updateBodyLoggedInOrNot: function() {
       $('body').removeClass('logged-in logged-out');
