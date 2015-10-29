@@ -59,7 +59,6 @@ a {
 }
 
 .flat {
-  display: block;
   max-width: 100%;
 }
 
@@ -70,14 +69,28 @@ a {
   display: none;
 
   &.all {
-    display: inherit;
+    display: block;
   }
 }
 
-.registered .registered { display: inherit; }
+.anonymous  .anonymous  { display: block; }
+.registered .registered { display: block; }
 
-.logged-out .logged-out { display: inherit; }
-.logged-in  .logged-in  { display: inherit; }
+.logged-out .logged-out { display: block; }
+.logged-in  .logged-in  { display: block; }
+
+.not-following .not-following { display: block; }
+.following     .following     { display: block; }
+
+.film .film { display: block; }
+.mars .mars { display: block; }
+.sepp .sepp { display: block; }
+
+.film-sepp .film-sepp { display: block; }
+.film-mars .film-mars { display: block; }
+.mars-sepp .mars-sepp { display: block; }
+
+.film-mars-sepp .film-mars-sepp { display: block; }
 
 
 // Common
@@ -296,31 +309,44 @@ $mybbc-confirmation-green: #159008;
   // Film
   .follow-cta[data-follow-topic="film"] {
 
-    .film & {
+    .t-film & {
       .follow-cta__icon--minus { display: inline-block; }
       .follow-cta__icon--plus  { display: none; }
     }
   }
 
   // Sepp Blatter
-  .follow-cta[data-follow-topic="sepp-blatter"] {
+  .follow-cta[data-follow-topic="sepp"] {
 
-    .sepp-blatter & {
+    .t-sepp & {
       .follow-cta__icon--minus { display: inline-block; }
       .follow-cta__icon--plus  { display: none; }
     }
   }
 
   // Mars Rover
-  .follow-cta[data-follow-topic="mars-rover"] {
+  .follow-cta[data-follow-topic="mars"] {
 
-    .mars-rover & {
+    .t-mars & {
       .follow-cta__icon--minus { display: inline-block; }
       .follow-cta__icon--plus  { display: none; }
     }
   }
 
   // -- Homepage
+  .my-news-hp__logged-out,
+  .my-news-hp__logged-out__ctas,
+  .my-news-hp__film,
+  .my-news-hp__mars,
+  .my-news-hp__sepp,
+  .my-news-hp__film-sepp,
+  .my-news-hp__mars-sepp,
+  .my-news-hp__film-mars,
+  .my-news-hp__film-mars-sepp {
+
+    a { display: block; }
+  }
+
   .my-news-hp__logged-out {}
     .my-news-hp__logged-out__ctas {
       @include nav;
@@ -328,6 +354,7 @@ $mybbc-confirmation-green: #159008;
       margin-top: 0;
       margin-bottom: 0;
     }
+
 
 // BBC iD
 // - Register

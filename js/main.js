@@ -10,29 +10,33 @@
     //
 
     init: function() {
+      A.coldStart();
       A.bindEvts();
 
       A.following = Cookies.getJSON('following') || [];
 
       A.updateBodyRegisteredOrNot();
       A.updateBodyLoggedInOrNot();
-      A.updateBodyFollowedTopics();
 
-      // A.coldStart();
-      // A.testAll();
+      // Update body class with followed topics if we're following any
+      if(A.following.length > 0) {
+        A.updateBodyFollowedTopics();
+      }
+
+      A.testStates();
     },
 
-    testAll: function() {
+    testStates: function() {
       A.register();
       A.login();
-      A.follow('mars-rover');
-      A.follow('sepp-blatter');
+      A.follow('mars');
+      A.follow('sepp');
       A.follow('film');
-      A.unFollow('mars-rover');
+      A.unFollow('mars');
     },
 
     coldStart: function() {
-      A.following  = [];
+      A.following = [];
 
       Cookies.remove('logged-in');
       Cookies.remove('registered');
@@ -83,6 +87,17 @@
     },
 
     onFollow: function(e, topic) {
+
+      // Get the current class before we add the new one, and remove it
+      // This is so we only ever have the current class on the body, otherwise
+      // we're going to have difficulty removing classes
+      var bodyTopicsString = A.getBodyTopicsString(A.following);
+      $('body').removeClass( bodyTopicsString );
+
+
+      // Add the t-class
+      $('body').addClass( 't-' + topic );
+
       A.following.push( topic );
       Cookies.set('following', A.following);
       A.updateBodyFollowedTopics();
@@ -93,6 +108,17 @@
     },
 
     onUnFollowed: function(e, topic) {
+
+      // Here we want to do the same thing as onFollow -- rather than try to splice
+      // a single topic out of the body's class, we're just going to remove the whole
+      // thing
+      var bodyTopicsString = A.getBodyTopicsString(A.following);
+      $('body').removeClass( bodyTopicsString );
+
+
+      // Remove the t-class
+      $('body').removeClass( 't-' + topic );
+
       var topicToRemove = topic;
       var index         = A.following.indexOf( topicToRemove );
       if (index > -1) {
@@ -100,7 +126,7 @@
       }
 
       Cookies.set('following', A.following);
-      A.updateBodyFollowedTopics( topicToRemove );
+      A.updateBodyFollowedTopics();
     },
 
     toggleFollowDataTopic: function(e) {
@@ -142,24 +168,16 @@
     // The below method puts the names of the topics followed in the body class
     //
 
-    updateBodyFollowedTopics: function(topicToRemove) {
+    updateBodyFollowedTopics: function() {
+      var bodyTopicsString = A.getBodyTopicsString(A.following);
 
-      // If there is a topic to remove, that's all we need to do.
-      if(topicToRemove) {
-
-        // Remove unfollowed topic.
-        $('body').removeClass( topicToRemove );
-
-      } else {
-
-        // Add followed topics using cookie array.
-        $.each(A.following, function(i, topic) {
-          $('body').addClass( topic );
-        });
-
-      }
+      $('body').addClass( bodyTopicsString );
 
       A.updateBodyFollowingOrNot();
+    },
+
+    getBodyTopicsString: function(topics) {
+      return topics.sort().join('-');
     },
 
 
@@ -167,7 +185,7 @@
     //
 
     updateBodyFollowingOrNot: function() {
-      var isFollowing = A.following.length > 0 ? true : false;
+      var isFollowing = (A.following.length > 0);
 
       // First remove both following and not-following classes, so we can...
       $('body').removeClass('following not-following');
