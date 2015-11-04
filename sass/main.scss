@@ -203,6 +203,20 @@ a {
       padding-top: 12px;
       padding-bottom: 12px;
     }
+
+    // Conditional menu items
+    //
+
+    .menu__my-news {
+      display: none;
+
+      .following & { display: block; }
+    }
+    .menu__my-news-onboard {
+      display: none;
+
+      .not-following & { display: block; }
+    }
   }
   .menu__list--secondary {
     background-color: #222;
