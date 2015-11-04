@@ -361,13 +361,29 @@ $mybbc-confirmation-green: #159008;
     a { display: block; }
   }
 
-  .my-news-hp__logged-out {}
+  // Logged Out, Not Following
+  .my-news-hp__logged-out {
+
+    .logged-out.not-following & {
+
+      .flat { display: block; }
+    }
+  }
     .my-news-hp__logged-out__ctas {
       @include nav;
       @include nav--float;
       margin-top: 0;
       margin-bottom: 0;
     }
+
+  // Logged In, Not Following
+  .my-news-hp__logged-in {
+
+    .logged-in.not-following & {
+
+      .flat { display: block; }
+    }
+  }
 
 
 // BBC iD

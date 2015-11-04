@@ -4,23 +4,28 @@ layout: default
 {% include baseurl.html %}
 {% include masthead.html %}
 {% include home-tabs.html %}
+
 <div class="container">
   <img src="{{ baseurl }}/img/homepage/news-hp_031115_01.png" alt="" class="flat all" />
 
   <img src="{{ baseurl }}/img/my-news/homepage/my-news-title.png" alt="" class="following flat" />
 
+  <!-- Logged Out -->
+  <!-- Custom display rules in main.scss -->
   <div class="my-news-hp__logged-out">
-    <img src="{{ baseurl }}/img/my-news/homepage/logged-out/logged-out_01.png" alt="" class="logged-out not-following flat" />
+    <img src="{{ baseurl }}/img/my-news/homepage/logged-out/logged-out_01.png" alt="" class="flat" />
     <ul class="my-news-hp__logged-out__ctas">
-      <li><a href="#"><img src="{{ baseurl }}/img/my-news/homepage/logged-out/logged-out_02.png" alt="" class="logged-out flat" /></a></li>
-      <li><a href="#"><img src="{{ baseurl }}/img/my-news/homepage/logged-out/logged-out_03.png" alt="" class="logged-out flat" /></a></li>
+      <li><a href="{{ baseurl }}/sign-in.html"><img src="{{ baseurl }}/img/my-news/homepage/logged-out/logged-out_02.png" alt="" class="flat" /></a></li>
+      <li><a href="{{ baseurl }}/register.html"><img src="{{ baseurl }}/img/my-news/homepage/logged-out/logged-out_03.png" alt="" class="flat" /></a></li>
     </ul>
-    <img src="{{ baseurl }}/img/my-news/homepage/logged-out/logged-out_04.png" alt="" class="logged-out not-following flat" />
+    <img src="{{ baseurl }}/img/my-news/homepage/logged-out/logged-out_04.png" alt="" class="flat" />
   </div>
 
+  <!-- Logged In -->
+  <!-- Custom display rules in main.scss -->
   <div class="my-news-hp__logged-in">
-    <img src="{{ baseurl }}/img/my-news/homepage/logged-in/logged-in_01.png" alt="" class="logged-in not-following flat" />
-    <img src="{{ baseurl }}/img/my-news/homepage/logged-in/logged-in_02.png" alt="" class="logged-in not-following flat" />
+    <img src="{{ baseurl }}/img/my-news/homepage/logged-in/logged-in_01.png" alt="" class="flat" />
+    <img src="{{ baseurl }}/img/my-news/homepage/logged-in/logged-in_02.png" alt="" class="flat" />
   </div>
 
   <!-- 1 Topic -->
