@@ -385,6 +385,14 @@ $mybbc-confirmation-green: #159008;
     }
   }
 
+// -- Upsell
+
+.my-news-upsell__ctas {
+  @include nav;
+  @include nav--float;
+  margin-top: 0;
+  margin-bottom: 0;
+}
 
 // BBC iD
 // - Register
