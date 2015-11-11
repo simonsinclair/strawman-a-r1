@@ -15,37 +15,36 @@
 
       A.following = Cookies.getJSON('following') || [];
 
-      A.updateBodyRegisteredOrNot();
       A.updateBodyLoggedInOrNot();
+
 
       // Update body class with followed topics if we're following any
       if(A.following.length > 0) {
         A.updateBodyFollowedTopics();
       }
 
+      A.updateBodyFollowingOrNot();
+
       A.testStates();
     },
 
     testStates: function() {
-      A.register();
-      A.login();
-      A.follow('mars');
-      A.follow('sepp');
-      A.follow('film');
-      A.unFollow('mars');
+      // A.login();
+      // A.follow('mars');
+      // A.follow('sepp');
+      // A.follow('film');
+      // A.unFollow('mars');
     },
 
     coldStart: function() {
       A.following = [];
 
       Cookies.remove('logged-in');
-      Cookies.remove('registered');
       Cookies.remove('following', []);
     },
 
     bindEvts: function() {
       $.subscribe('followed', A.onFollow);
-      $.subscribe('registered', A.onRegistered);
       $.subscribe('loggedIn', A.onLoggedIn);
 
       $.subscribe('unFollowed', A.onUnFollowed);
@@ -57,17 +56,6 @@
     },
 
     // STATES
-    // - Register
-
-    register: function() {
-      Cookies.set('registered', true);
-      $.publish('registered');
-    },
-
-    onRegistered: function() {
-      A.updateBodyRegisteredOrNot();
-    },
-
     // - login
 
     login: function() {
@@ -95,8 +83,10 @@
       $('body').removeClass( bodyTopicsString );
 
 
-      // Add the t-class
-      $('body').addClass( 't-' + topic );
+      // And remove t-classes
+      $.each(A.following, function(i, topic) {
+        $('body').removeClass('t-' + topic);
+      });
 
       A.following.push( topic );
       Cookies.set('following', A.following);
@@ -115,9 +105,10 @@
       var bodyTopicsString = A.getBodyTopicsString(A.following);
       $('body').removeClass( bodyTopicsString );
 
-
-      // Remove the t-class
-      $('body').removeClass( 't-' + topic );
+      // And remove t-classes
+      $.each(A.following, function(i, topic) {
+        $('body').removeClass('t-' + topic);
+      });
 
       var topicToRemove = topic;
       var index         = A.following.indexOf( topicToRemove );
@@ -144,16 +135,6 @@
     // UPDATE
     //
 
-    updateBodyRegisteredOrNot: function() {
-      $('body').removeClass('registered anonymous');
-
-      if( Cookies.get('registered') ) {
-        $('body').addClass('registered');
-      } else {
-        $('body').addClass('anonymous');
-      }
-    },
-
     updateBodyLoggedInOrNot: function() {
       $('body').removeClass('logged-in logged-out');
 
@@ -170,8 +151,12 @@
 
     updateBodyFollowedTopics: function() {
       var bodyTopicsString = A.getBodyTopicsString(A.following);
-
       $('body').addClass( bodyTopicsString );
+
+      // Generate t-classes
+      $.each(A.following, function(i, topic) {
+        $('body').addClass('t-' + topic)
+      });
 
       A.updateBodyFollowingOrNot();
     },
