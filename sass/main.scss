@@ -347,6 +347,73 @@ $mybbc-confirmation-green: #159008;
     }
   }
 
+  // -- Edit
+  .my-news-edit {}
+    .my-news-edit__topics {
+      @include nav;
+      @include nav--stacked;
+      background-color: #FFF;
+      margin-top: 0;
+      margin-bottom: 0;
+
+      li {
+
+        &:last-child a {
+          border-bottom: none;
+          padding-bottom: 20px;
+        }
+      }
+      a {
+        border-bottom: solid 1px #ECECEC;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+    }
+
+  // -- Edit - Add
+  .my-news-edit-add {}
+    .my-news-edit-add__topics {
+      @include nav;
+      @include nav--stacked;
+      background-color: #FFF;
+      margin-top: 0;
+      margin-bottom: 0;
+
+      li {
+
+        &:last-child a {
+          border-bottom: none;
+          padding-bottom: 20px;
+        }
+      }
+      a {
+        border-bottom: solid 1px #ECECEC;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+
+      .my-news-edit-add__topic__film {
+        display: none;
+
+        .t-film & { display: list-item; }
+      }
+      .my-news-edit-add__topic__mars {
+        display: none;
+
+        .t-mars & { display: list-item; }
+      }
+      .my-news-edit-add__topic__sepp {
+        display: none;
+
+        .t-sepp & { display: list-item; }
+      }
+    }
+
+
   // -- Homepage
   .my-news-hp__logged-out,
   .my-news-hp__logged-in,
