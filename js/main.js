@@ -10,7 +10,7 @@
     //
 
     init: function() {
-      A.coldStart();
+      // A.coldStart();
       A.bindEvts();
 
       A.following = Cookies.getJSON('following') || [];
@@ -25,14 +25,14 @@
 
       A.updateBodyFollowingOrNot();
 
-      A.testStates();
+      // A.testStates();
     },
 
     testStates: function() {
       A.login();
-      // A.follow('mars');
-      // A.follow('sepp');
-      // A.follow('film');
+      A.follow('mars');
+      A.follow('sepp');
+      A.follow('film');
       // A.unFollow('mars');
     },
 
