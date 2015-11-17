@@ -502,3 +502,13 @@ $mybbc-confirmation-green: #159008;
     .register-confirmation__continue-cta {
       @extend .mybbc-cta;
     }
+
+// OBJECTS
+// - Carousel
+
+.carousel {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+  .carousel__content {}
