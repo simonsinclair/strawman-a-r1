@@ -286,16 +286,16 @@ $mybbc-confirmation-green: #159008;
     background-color: #FFF;
     margin-top: 0;
     margin-bottom: 0;
+    padding-bottom: 8px;
 
     li {
 
-      &:last-child a {
-        border-bottom: none;
-        padding-bottom: 20px;
+      &:first-child a {
+        border-top: none;
       }
     }
     a {
-      border-bottom: solid 1px #ECECEC;
+      border-top: solid 1px #ECECEC;
       padding-top: 12px;
       padding-bottom: 12px;
       margin-left: 20px;
@@ -355,16 +355,16 @@ $mybbc-confirmation-green: #159008;
       background-color: #FFF;
       margin-top: 0;
       margin-bottom: 0;
+      padding-bottom: 8px;
 
       li {
 
-        &:last-child a {
-          border-bottom: none;
-          padding-bottom: 20px;
+        &:first-child a {
+          border-top: none;
         }
       }
       a {
-        border-bottom: solid 1px #ECECEC;
+        border-top: solid 1px #ECECEC;
         padding-top: 12px;
         padding-bottom: 12px;
         margin-left: 20px;
@@ -380,16 +380,16 @@ $mybbc-confirmation-green: #159008;
       background-color: #FFF;
       margin-top: 0;
       margin-bottom: 0;
+      padding-bottom: 8px;
 
       li {
 
-        &:last-child a {
-          border-bottom: none;
-          padding-bottom: 20px;
+        &:first-child a {
+          border-top: none;
         }
       }
       a {
-        border-bottom: solid 1px #ECECEC;
+        border-top: solid 1px #ECECEC;
         padding-top: 12px;
         padding-bottom: 12px;
         margin-left: 20px;
