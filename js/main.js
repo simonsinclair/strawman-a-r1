@@ -16,6 +16,7 @@
       A.following = Cookies.getJSON('following') || [];
 
       A.updateBodyLoggedInOrNot();
+      A.updateBodySignedInFrom();
 
 
       // Update body class with followed topics if we're following any
@@ -40,11 +41,13 @@
       A.following = [];
 
       Cookies.remove('logged-in');
+      Cookies.remove('signedInFrom');
       Cookies.remove('following', []);
     },
 
     bindEvts: function() {
       $.subscribe('followed', A.onFollow);
+      $.subscribe('setSignedInFrom', A.updateBodySignedInFrom);
       $.subscribe('loggedIn', A.onLoggedIn);
 
       $.subscribe('unFollowed', A.onUnFollowed);
@@ -65,6 +68,14 @@
 
     onLoggedIn: function() {
       A.updateBodyLoggedInOrNot();
+    },
+
+    setSignedInFrom: function(page) {
+      if(typeof page === 'undefined') {
+        page = 'unset'
+      }
+      Cookies.set('signedInFrom', 'sif-'+page);
+      $.publish('setSignedInFrom');
     },
 
     // FOLLOWING
@@ -143,6 +154,11 @@
       } else {
         $('body').addClass('logged-out');
       }
+    },
+
+    updateBodySignedInFrom: function() {
+      var signedInFrom = Cookies.get('signedInFrom');
+      $('body').addClass( signedInFrom );
     },
 
 
