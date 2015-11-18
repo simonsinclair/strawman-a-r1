@@ -16,7 +16,9 @@
       A.following = Cookies.getJSON('following') || [];
 
       A.updateBodyLoggedInOrNot();
+      A.updateBodySignedInFrom();
 
+      A.setTrackingCookie();
 
       // Update body class with followed topics if we're following any
       if(A.following.length > 0) {
@@ -28,18 +30,29 @@
       A.testStates();
     },
 
+    setTrackingCookie: function() {
+      var currentPage = window.location.href;
+
+      if (currentPage.search('/sign-in.html')               === -1 &&
+          currentPage.search('/register.html')              === -1 &&
+          currentPage.search('/register-confirmation.html') === -1) {
+        Cookies.set('last-page', window.location.href);
+      }
+    },
+
     testStates: function() {
       A.login();
       A.follow('mars');
-      A.follow('sepp');
+      // A.follow('sepp');
       A.follow('film');
-      A.unFollow('mars');
+      // A.unFollow('mars');
     },
 
     coldStart: function() {
       A.following = [];
 
       Cookies.remove('logged-in');
+      Cookies.remove('signedInFrom');
       Cookies.remove('following', []);
     },
 
@@ -58,9 +71,23 @@
     // STATES
     // - login
 
-    login: function() {
+    login: function(e) {
+      e = e || window.event;
+
       Cookies.set('logged-in', true);
       $.publish('loggedIn');
+
+      var currPage = window.location.href;
+      var lastPage = Cookies.get('last-page');
+
+
+      // Prevent redirection-loop when triggering login() from testStates()
+      //
+
+      if (lastPage !== currPage && lastPage) {
+        e.preventDefault();
+        window.location = lastPage;
+      }
     },
 
     onLoggedIn: function() {
@@ -130,6 +157,10 @@
       } else {
         A.follow( topic );
       }
+
+      if( !Cookies.get('logged-in') ) {
+        window.location = "sign-in.html";
+      }
     },
 
     // UPDATE
@@ -143,6 +174,11 @@
       } else {
         $('body').addClass('logged-out');
       }
+    },
+
+    updateBodySignedInFrom: function() {
+      var signedInFrom = Cookies.get('signedInFrom');
+      $('body').addClass( signedInFrom );
     },
 
 
