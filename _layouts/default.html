@@ -26,11 +26,6 @@ layout: compress
     <script src="{{ baseurl }}/js/vendor/js-cookie.min.js"></script>
     <script src="{{ baseurl }}/js/main.js"></script>
     <script>
-      if(typeof A.getParameterByName('sif') !== "undefined") {
-        var signedInFrom = A.getParameterByName('sif');
-        A.setSignedInFrom( signedInFrom );
-      }
-
       if( A.getParameterByName('reset') === "true" ) {
         A.coldStart();
         window.location.replace("{{ baseurl }}");

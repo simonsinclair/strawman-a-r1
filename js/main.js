@@ -70,14 +70,6 @@
       A.updateBodyLoggedInOrNot();
     },
 
-    setSignedInFrom: function(page) {
-      if(typeof page === 'undefined') {
-        page = 'unset'
-      }
-      Cookies.set('signedInFrom', 'sif-'+page);
-      $.publish('setSignedInFrom');
-    },
-
     // FOLLOWING
     //
 
