@@ -10,7 +10,7 @@
     //
 
     init: function() {
-      A.coldStart();
+      // A.coldStart();
       A.bindEvts();
 
       A.following = Cookies.getJSON('following') || [];
@@ -27,7 +27,7 @@
 
       A.updateBodyFollowingOrNot();
 
-      A.testStates();
+      // A.testStates();
     },
 
     setTrackingCookie: function() {
@@ -41,16 +41,17 @@
     },
 
     testStates: function() {
-      A.login();
-      A.follow('mars');
+      // A.login();
+      // A.follow('mars');
       // A.follow('sepp');
-      A.follow('film');
+      // A.follow('film');
       // A.unFollow('mars');
     },
 
     coldStart: function() {
       A.following = [];
 
+      Cookies.remove('last-page');
       Cookies.remove('logged-in');
       Cookies.remove('signedInFrom');
       Cookies.remove('following', []);
