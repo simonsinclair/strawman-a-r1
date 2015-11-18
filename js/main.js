@@ -18,6 +18,7 @@
       A.updateBodyLoggedInOrNot();
       A.updateBodySignedInFrom();
 
+      A.setTrackingCookie();
 
       // Update body class with followed topics if we're following any
       if(A.following.length > 0) {
@@ -27,6 +28,16 @@
       A.updateBodyFollowingOrNot();
 
       // A.testStates();
+    },
+
+    setTrackingCookie: function() {
+      var currentPage = window.location.href;
+
+      if (currentPage.search('/sign-in.html')               === -1 &&
+          currentPage.search('/register.html')              === -1 &&
+          currentPage.search('/register-confirmation.html') === -1) {
+        Cookies.set('last-page', window.location.href);
+      }
     },
 
     testStates: function() {
@@ -47,7 +58,6 @@
 
     bindEvts: function() {
       $.subscribe('followed', A.onFollow);
-      $.subscribe('setSignedInFrom', A.updateBodySignedInFrom);
       $.subscribe('loggedIn', A.onLoggedIn);
 
       $.subscribe('unFollowed', A.onUnFollowed);
