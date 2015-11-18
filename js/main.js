@@ -77,9 +77,14 @@
       Cookies.set('logged-in', true);
       $.publish('loggedIn');
 
+      var currPage = window.location.href;
       var lastPage = Cookies.get('last-page');
 
-      if (lastPage) {
+
+      // Prevent redirection-loop when triggering login() from testStates()
+      //
+
+      if (lastPage !== currPage && lastPage) {
         e.preventDefault();
         window.location = lastPage;
       }
