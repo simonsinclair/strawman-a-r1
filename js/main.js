@@ -133,6 +133,10 @@
       } else {
         A.follow( topic );
       }
+
+      if( !Cookies.get('logged-in') ) {
+        window.location = "sign-in.html";
+      }
     },
 
     // UPDATE
