@@ -51,6 +51,7 @@
     coldStart: function() {
       A.following = [];
 
+      Cookies.remove('last-page');
       Cookies.remove('logged-in');
       Cookies.remove('signedInFrom');
       Cookies.remove('following', []);
