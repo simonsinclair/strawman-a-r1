@@ -25,11 +25,5 @@ layout: compress
     <script src="{{ baseurl }}/js/vendor/ba-tiny-pubsub.min.js"></script>
     <script src="{{ baseurl }}/js/vendor/js-cookie.min.js"></script>
     <script src="{{ baseurl }}/js/main.js"></script>
-    <script>
-      if( A.getParameterByName('reset') === "true" ) {
-        A.coldStart();
-        window.location.replace("{{ baseurl }}");
-      }
-    </script>
   </body>
 </html>

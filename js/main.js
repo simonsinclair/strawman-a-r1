@@ -41,10 +41,10 @@
     },
 
     testStates: function() {
-      A.login();
-      A.follow('mars');
-      A.follow('sepp');
-      A.follow('film');
+      // A.login();
+      // A.follow('mars');
+      // A.follow('sepp');
+      // A.follow('film');
       // A.unFollow('mars');
     },
 
