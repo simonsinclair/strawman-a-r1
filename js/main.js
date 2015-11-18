@@ -71,9 +71,18 @@
     // STATES
     // - login
 
-    login: function() {
+    login: function(e) {
+      e = e || window.event;
+
       Cookies.set('logged-in', true);
       $.publish('loggedIn');
+
+      var lastPage = Cookies.get('last-page');
+
+      if (lastPage) {
+        e.preventDefault();
+        window.location = lastPage;
+      }
     },
 
     onLoggedIn: function() {
