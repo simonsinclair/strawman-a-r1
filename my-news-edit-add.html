@@ -3,7 +3,7 @@ layout: default
 ---
 {% include baseurl.html %}
 {% include masthead.html %}
-<div class="my-news-edit-add container">
+<div class="my-news-edit container">
 
   <div class="container">
     <a href="{{ baseurl }}/my-news.html">
@@ -11,33 +11,108 @@ layout: default
     </a>
 
     <a href="{{ baseurl }}/my-news-edit.html">
-      <img class="flat all" src="{{ baseurl }}/img/my-news/edit/edit-tabs_add.png" alt="" />
+      <img class="flat all" src="{{ baseurl }}/img/my-news/edit/edit-tabs_my-topics.png" alt="" />
     </a>
+    <img class="flat all" src="{{ baseurl }}/img/my-news/edit/edit-add-topics.png" alt="" />
   </div>
-
-  <div class="container">
-    <img class="flat all" src="{{ baseurl }}/img/my-news/edit/edit-my-topics.png" alt="" />
-  </div>
-  <!-- My Topics -->
+  <!-- In the News now -->
   <div class="container container--non-flat">
-    <ul class="my-news-edit-add__topics">
-      <li class="my-news-edit-add__topic__film">
+    <ul class="my-news-edit__topics">
+      <li>
+        <a class="follow-cta" href="#" data-disable="">
+          <span class="follow-cta__icon follow-cta__icon--plus">&plus;</span> Athletics doping scandal
+        </a>
+      </li>
+      <li>
+        <a class="follow-cta" href="#" data-disable="">
+          <span class="follow-cta__icon follow-cta__icon--plus">&plus;</span> Europe migrant crisis
+        </a>
+      </li>
+      <li>
         <a class="follow-cta" href="#" data-follow-topic="film">
-          <span class="follow-cta__icon follow-cta__icon--minus">&minus;</span> Film
+          <span class="follow-cta__icon follow-cta__icon--plus">&plus;</span><span class="follow-cta__icon follow-cta__icon--minus">&minus;</span> Film
         </a>
       </li>
-      <li class="my-news-edit-add__topic__mars">
-        <a class="follow-cta" href="#" data-follow-topic="mars">
-          <span class="follow-cta__icon follow-cta__icon--minus">&minus;</span> Mars Rover
+      <li>
+        <a class="follow-cta" href="#" data-disable="">
+          <span class="follow-cta__icon follow-cta__icon--plus">&plus;</span> Labour leadership
         </a>
       </li>
-      <li class="my-news-edit-add__topic__sepp">
-        <a class="follow-cta" href="#" data-follow-topic="sepp">
-          <span class="follow-cta__icon follow-cta__icon--minus">&minus;</span> Sepp Blatter
+      <li>
+        <a class="follow-cta" href="#" data-disable="">
+          <span class="follow-cta__icon follow-cta__icon--plus">&plus;</span> Grammy Awards
         </a>
       </li>
     </ul>
   </div>
+
+  <div class="container">
+    <img class="flat all" src="{{ baseurl }}/img/my-news/edit/edit-hot-topics.png" alt="" />
+  </div>
+  <!-- Hot topics on BBC News -->
+  <div class="container container--non-flat">
+    <ul class="my-news-edit__topics">
+      <li>
+        <a class="follow-cta" href="#" data-disable="">
+          <span class="follow-cta__icon follow-cta__icon--plus">&plus;</span> David Cameron
+        </a>
+      </li>
+      <li>
+        <a class="follow-cta" href="#" data-disable="">
+          <span class="follow-cta__icon follow-cta__icon--plus">&plus;</span> Newspaper Review
+        </a>
+      </li>
+      <li>
+        <a class="follow-cta" href="#" data-disable="">
+          <span class="follow-cta__icon follow-cta__icon--plus">&plus;</span> Football transfers
+        </a>
+      </li>
+      <li>
+        <a class="follow-cta" href="#" data-disable="">
+          <span class="follow-cta__icon follow-cta__icon--plus">&plus;</span> US Elections 2016
+        </a>
+      </li>
+      <li>
+        <a class="follow-cta" href="#" data-disable="">
+          <span class="follow-cta__icon follow-cta__icon--plus">&plus;</span> Parliaments
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="container">
+    <img class="flat all" src="{{ baseurl }}/img/my-news/edit/edit-recently-visited.png" alt="" />
+  </div>
+   <!-- You've recently visited -->
+   <div class="container container--non-flat">
+     <ul class="my-news-edit__topics">
+       <li>
+         <a class="follow-cta" href="#" data-disable="">
+           <span class="follow-cta__icon follow-cta__icon--plus">&plus;</span> Royal family
+         </a>
+       </li>
+       <li>
+         <a class="follow-cta" href="#" data-disable="">
+           <span class="follow-cta__icon follow-cta__icon--plus">&plus;</span> NHS
+         </a>
+       </li>
+       <li>
+         <a class="follow-cta" href="#" data-disable="">
+           <span class="follow-cta__icon follow-cta__icon--plus">&plus;</span> Technology
+         </a>
+       </li>
+       <li>
+         <a class="follow-cta" href="#" data-disable="">
+           <span class="follow-cta__icon follow-cta__icon--plus">&plus;</span> Winter
+         </a>
+       </li>
+       <li>
+         <a class="follow-cta" href="#" data-disable="">
+           <span class="follow-cta__icon follow-cta__icon--plus">&plus;</span> UK Politics
+         </a>
+       </li>
+     </ul>
+   </div>
 
   <div class="container">
     <img class="flat all" src="{{ baseurl }}/img/my-news/edit/edit-footer-spacer.png" alt="" />
