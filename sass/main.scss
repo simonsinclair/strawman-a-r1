@@ -504,6 +504,69 @@ $mybbc-confirmation-green: #159008;
       @extend .mybbc-cta;
     }
 
+// LOGIN TO FOLLOW
+//
+
+.login-to-follow {
+  background-color: rgba(0,0,0,0.8);
+  display: none;
+  position: fixed;
+    top: 0; right: 0; bottom: 0; left: 0;
+  z-index: 10;
+}
+.login-to-follow--visible {
+  display: block;
+}
+  .login-to-follow__inner {
+    background-color: #FFF;
+    margin: 72px auto 0;
+    max-width: 300px;
+    padding: 16px;
+  }
+    .login-to-follow__title {
+      font-size: 18px;
+      margin-top: 0;
+      margin-bottom: 0;
+      position: relative;
+      font-weight: bold;
+
+      span {
+        font-size: 26px;
+        position: absolute;
+          top: -6px; right: 0;
+      }
+    }
+    .login-to-follow__desc {
+      font-size: 15px;
+      margin-top: 12px;
+      margin-bottom: 12px;
+    }
+    .login-to-follow__ctas {
+      @include nav;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 0;
+
+      li {
+        margin-right: 8px;
+      }
+    }
+      .login-to-follow__sign-in {
+        background-color: #007BC7;
+        color: #FFF;
+        display: inline-block;
+        padding: 8px 12px;
+        -webkit-font-smoothing: antialiased;
+      }
+      .login-to-follow__register {
+        color: #999;
+
+        span {
+          color: #007BC7;
+        }
+      }
+
+
 // OBJECTS
 // - Fluid flat's side-by-side
 

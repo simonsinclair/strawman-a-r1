@@ -159,9 +159,17 @@
         A.follow( topic );
       }
 
+      // If the user isn't logged in when they attempt to follow a topic
+      //
+
       if( !Cookies.get('logged-in') ) {
-        window.location = "sign-in.html";
+        A.showLoginToFollow();
       }
+
+    },
+
+    showLoginToFollow: function() {
+      $('#js-login-to-follow').addClass('login-to-follow--visible');
     },
 
     // UPDATE
