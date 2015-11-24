@@ -30,8 +30,10 @@ gulp.task('browser-sync', ['sass', 'jekyll-build'], function() {
     ui: false,
     server: { baseDir: '_site' },
     ghostMode: false,
+    // tunnel: true,
     online: false,
-    notify: false
+    notify: false,
+    // scrollThrottle: 100
   });
 
 });
