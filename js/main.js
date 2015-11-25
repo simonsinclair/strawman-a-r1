@@ -82,6 +82,16 @@
       var lastPage = Cookies.get('last-page');
 
 
+      // If lastPage was my-news-upsell.html, manipulate
+      // lastPage value to return to a pre-configured page.
+      //
+
+      var isLastPageUpsellPage = lastPage.search('/my-news-upsell.html') !== -1;
+      if( isLastPageUpsellPage ) {
+        lastPage = lastPage.replace(/my-news-upsell/, 'my-news-onboard');
+      }
+
+
       // Prevent redirection-loop when triggering login() from testStates()
       //
 
